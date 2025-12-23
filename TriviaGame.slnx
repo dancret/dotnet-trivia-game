@@ -1,3 +1,6 @@
 <Solution>
+  <Folder Name="/Tests/">
+    <Project Path="tests/TriviaGame.Core.Tests/TriviaGame.Core.Tests.csproj" />
+  </Folder>
   <Project Path="src/TriviaGame.Core/TriviaGame.Core.csproj" />
 </Solution>

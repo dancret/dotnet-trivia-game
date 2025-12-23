@@ -22,6 +22,11 @@ public sealed class Question
     /// Gets or sets the type of the question.
     /// </summary>
     public QuestionType Type { get; set; }
+    
+    /// <summary>
+    /// Gets or sets the difficulty level assigned to the question.
+    /// </summary>
+    public QuestionDifficultyLevel DifficultyLevel { get; set; }
 
     /// <summary>
     /// The content of the question.
@@ -43,4 +48,9 @@ public sealed class Question
     /// Gets or sets the collection of tags associated with the question.
     /// </summary>
     public ICollection<QuestionTag> Tags { get; set; } = new List<QuestionTag>();
+    
+    /// <summary>
+    /// Gets or sets the collection of answers associated with the question.
+    /// </summary>
+    public ICollection<AnswerChoice> Choices { get; set; } = new List<AnswerChoice>();
 }

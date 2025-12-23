@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents an answer to a trivia question.
 /// </summary>
-public sealed class Answer
+public sealed class AnswerChoice
 {
     /// <summary>
     /// Unique identifier for the answer.
@@ -18,7 +18,7 @@ public sealed class Answer
     /// <summary>
     /// Represents the textual representation of an answer to a trivia question.
     /// </summary>
-    public string AnswerText { get; set; } = string.Empty;
+    public string Answer { get; set; } = string.Empty;
     
     /// <summary>
     /// The text or media type of the answer content.
