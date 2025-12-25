@@ -8,10 +8,45 @@ public sealed class GameSession
     /// <summary>
     /// Unique identifier for the game session.
     /// </summary>
-    public Guid Id { get; set; }
-    
+    public required string Id { get; set; }
+
+    /// <summary>
+    /// Gets or sets the name of the trivia game session.
+    /// </summary>
+    public string Name { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the rules that govern the current game session.
+    /// </summary>
     public GameSessionRules Rules { get; set; } = GameSessionRules.Default;
+    
+    /// <summary>
+    /// Gets or sets the collection of rounds associated with the game session.
+    /// </summary>
+    public ICollection<GameSessionRound> Rounds { get; set; } = new List<GameSessionRound>();
 }
+
+public sealed class GameSessionRound
+{
+    /// <summary>
+    /// Gets or sets the identifier for the round.
+    /// <remarks>This will be the order of the round as well.</remarks>
+    /// </summary>
+    public int Id { get; set; }
+    
+    public Player? Player { get; set; }
+    
+    public required string QuestionId { get; set; }
+    
+    public string? Answer { get; set; }
+}
+
+/// <summary>
+/// Game session participant.
+/// </summary>
+/// <remarks>Can also represent a team.</remarks>
+/// <param name="Name"></param>
+public sealed record Player(string Id, string Name);
 
 /// <summary>
 /// Represents the set of rules that govern a game session.

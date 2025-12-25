@@ -8,15 +8,12 @@ public sealed class Question
     /// <summary>
     /// Unique identifier for the question.
     /// </summary>
-    public Guid Id { get; set; }
+    public required string Id { get; set; }
 
     /// <summary>
-    /// Gets or sets the text of the trivia question.
+    /// Gets or sets the text prompt of the trivia question.
     /// </summary>
-    /// <value>
-    /// A <see cref="string"/> representing the text of the trivia question.
-    /// </value>
-    public string QuestionText { get; set; } = string.Empty;
+    public required string Prompt { get; set; }
     
     /// <summary>
     /// Gets or sets the type of the question.
@@ -40,9 +37,9 @@ public sealed class Question
     public ContentType ContentType { get; set; }
 
     /// <summary>
-    /// Gets or sets the unique identifier of the category.
+    /// Gets or sets the category of the question.
     /// </summary>
-    public Guid CategoryId { get; set; }
+    public required QuestionCategory Category { get; set; }
     
     /// <summary>
     /// Gets or sets the collection of tags associated with the question.
