@@ -19,34 +19,18 @@ public sealed class GameSession
     /// Gets or sets the rules that govern the current game session.
     /// </summary>
     public GameSessionRules Rules { get; set; } = GameSessionRules.Default;
-    
-    /// <summary>
-    /// Gets or sets the collection of rounds associated with the game session.
-    /// </summary>
-    public ICollection<GameSessionRound> Rounds { get; set; } = new List<GameSessionRound>();
 }
 
-public sealed class GameSessionRound
-{
-    /// <summary>
-    /// Gets or sets the identifier for the round.
-    /// <remarks>This will be the order of the round as well.</remarks>
-    /// </summary>
-    public int Id { get; set; }
-    
-    public Player? Player { get; set; }
-    
-    public required string QuestionId { get; set; }
-    
-    public string? Answer { get; set; }
-}
+public readonly record struct PlayerId(string Id);
 
 /// <summary>
 /// Game session participant.
 /// </summary>
 /// <remarks>Can also represent a team.</remarks>
 /// <param name="Name"></param>
-public sealed record Player(string Id, string Name);
+public sealed record Player(PlayerId Id, string Name);
+
+public sealed record Answer(Player Player, DateTimeOffset SubmittedAtUtc, string Value);
 
 /// <summary>
 /// Represents the set of rules that govern a game session.
